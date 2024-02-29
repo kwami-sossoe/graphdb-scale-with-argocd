@@ -4,7 +4,7 @@ metadata:
   name: graphdb-project-001
   namespace: argocd
 spec:
-  project: graphdb-project-001
+  project: default
 
   source:
     repoURL: https://github.com/kwami-sossoe/graphdb-scale-with-argocd.git
