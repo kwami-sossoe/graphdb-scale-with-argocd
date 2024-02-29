@@ -1,0 +1,23 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: graphdb-project-001
+  namespace: argocd
+spec:
+  project: graphdb-project-001
+
+  source:
+    repoURL: https://github.com/kwami-sossoe/graphdb-scale-with-argocd.git
+    targetRevision: HEAD
+    path: values/test-service/project-001/dev
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: graphdb-project-001
+
+  syncPolicy:
+    syncOptions:
+    - CreateNamespace=true
+
+    automated:
+      selfHeal: true
+      prune: true
